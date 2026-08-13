@@ -54,8 +54,9 @@ def process_command(command):
             speak(f"Playing {song}")
         else:
             speak("Sorry, I don't have that song.")
-
     else:
-        return False
+        from client import aiProcess
 
+        output = aiProcess(command)
+        speak(output)
     return True

@@ -1,6 +1,12 @@
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+
 def aiProcess(command):
     client = OpenAI(
-        api_key="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",
+        api_key=os.getenv("groq_api_key"),
         base_url="https://api.groq.com/openai/v1"
     )
 
@@ -9,7 +15,7 @@ def aiProcess(command):
         messages=[
             {
                 "role": "system",
-                "content": "You are a virtual assistant named Jarvis. Give short, helpful answers suitable for a voice assistant."
+                "content": "You are Jarvis. Give short, helpful answers suitable for a voice assistant."
             },
             {
                 "role": "user",
